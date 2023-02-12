@@ -10,6 +10,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AccesFormComponent } from './components/acces-form/acces-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { LoginComponent } from './modal/login/login.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MenuComponent } from './pages/menu/menu.component';
+import { CardComponent } from './components/card/card.component';
+import { CardMyorderComponent } from './components/card-myorder/card-myorder.component';
+
 
 @NgModule({
   declarations: [
@@ -19,12 +25,17 @@ import { LoginComponent } from './modal/login/login.component';
     FooterComponent,
     AccesFormComponent,
     RegisterFormComponent,
-    LoginComponent
+    LoginComponent,
+    MenuComponent,
+    CardComponent,
+    CardMyorderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxWebstorageModule.forRoot(),
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

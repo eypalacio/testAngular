@@ -1,0 +1,38 @@
+<div class="flex flex-col w-full h-full overflow-hidden">
+    <h6 class="flex-none h-fit text-xl courgette text-emerald-500 flex pl-6">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-orange-400">
+            <path fill-rule="evenodd" d="M7.502 6h7.128A3.375 3.375 0 0118 9.375v9.375a3 3 0 003-3V6.108c0-1.505-1.125-2.811-2.664-2.94a48.972 48.972 0 00-.673-.05A3 3 0 0015 1.5h-1.5a3 3 0 00-2.663 1.618c-.225.015-.45.032-.673.05C8.662 3.295 7.554 4.542 7.502 6zM13.5 3A1.5 1.5 0 0012 4.5h4.5A1.5 1.5 0 0015 3h-1.5z" clip-rule="evenodd" />
+            <path fill-rule="evenodd" d="M3 9.375C3 8.339 3.84 7.5 4.875 7.5h9.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 013 20.625V9.375zM6 12a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H6.75a.75.75 0 01-.75-.75V12zm2.25 0a.75.75 0 01.75-.75h3.75a.75.75 0 010 1.5H9a.75.75 0 01-.75-.75zM6 15a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H6.75a.75.75 0 01-.75-.75V15zm2.25 0a.75.75 0 01.75-.75h3.75a.75.75 0 010 1.5H9a.75.75 0 01-.75-.75zM6 18a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H6.75a.75.75 0 01-.75-.75V18zm2.25 0a.75.75 0 01.75-.75h3.75a.75.75 0 010 1.5H9a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+          </svg>
+           Menu: <span class="text-xl text-zinc-500 ">categories</span>
+    </h6>
+    <div class="flex-none flex overflow-x-auto h-16 py-2 w-full px-4 gap-4">
+
+        <button class="px-4 py-2 bg-orange-400 text-white rounded-full whitespace-nowrap">all categories</button>
+        <button class="px-4 py-2 border border-orange-400 text-orange-400 rounded-full w-fit whitespace-nowrap"  *ngFor="let item of categories">{{item}}</button>
+
+    </div>
+
+    <div class="flex flex-1 gap-4 h-fit overflow-y-auto relative">
+        <div class="flex-1 grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-4 pt-8">
+            <app-card></app-card>
+            <app-card></app-card>
+            <app-card></app-card>
+            <app-card></app-card>
+            <app-card></app-card>
+            <app-card></app-card>
+        </div>
+        <div class="flex-none w-3/12 lg:flex md:flex lg:flex-col md:flex-col  border-l-2 border-slate-100 hidden p-4">
+            <h6 class="flex-none h-fit text-xl courgette text-emerald-500 flex">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-orange-400">
+                    <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z" clip-rule="evenodd" />
+                  </svg>
+                   My order:
+            </h6> 
+            <div class="flex flex-col w-full">
+                <app-card-myorder></app-card-myorder>
+            </div>
+            <button class="rounded-full bg-orange-400 text-white w-full py-2 mt-4">Order now ($9.98)</button>
+        </div>
+    </div>
+</div>
