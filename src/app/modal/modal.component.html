@@ -1,0 +1,15 @@
+<ng-container *ngIf="display$ | async as display">
+    <section [class.open]="display === 'open'" (click)="close()" class="backdrop-blur-sm bg-white/30">
+        <div class="card bg-white w-5/6 lg:w-3/6 md:w-4/6 rounded-lg shadow-2xl relative flex" (click)="$event.stopPropagation()">
+            <!-- <button class="close" type="button" (click)="close()">X</button> -->
+            <div class="flex-none w-5/12 hidden lg:flex md:flex relative justify-center">
+                <img src="assets/img/eslogan.png" alt="" class="absolute w-4/6 top-6">
+                <img src="assets/img/carne.jpg" alt="" class="object-cover rounded-bl-lg rounded-tl-lg">
+            </div>
+            <div class="flex-1">
+                <app-acces-form *ngIf="form=='login'" (emisor)="action($event)"></app-acces-form>
+                <app-register-form *ngIf="form=='register'" (emisor)="action($event)"></app-register-form>
+            </div>
+        </div>
+    </section>
+</ng-container>

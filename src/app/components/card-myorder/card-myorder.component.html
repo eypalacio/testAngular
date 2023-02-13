@@ -1,7 +1,10 @@
-<div class="flex p-4 w-full border-b-2 border-slate-100 gap-4">
+<div class="flex p-4 w-full border-b-2 border-slate-100 gap-4" *ngFor="let item of orders">
     <img src="assets/img/salad.jpeg" alt="" class="flex-none h-20 object-cover w-20 rounded-xl">
     <div class="flex-1 flex flex-col relative">
-        <h3 class="text-lg text-zinc-700 font-bold">Salad</h3>
-        <p class="text-zinc-500 text-xs font-bold">$4.99</p>
+        <h3 class="text-lg text-zinc-700 font-bold">{{item.name}}</h3>
+        <p class="text-zinc-500 text-xs font-bold">${{item.price}}</p>
+        <p class="text-zinc-500 text-xs font-bold absolute right-2 bottom-2">${{(item.price*item.cant)}}</p>
+
     </div>
 </div>
+<button class="rounded-full bg-orange-400 text-white w-full py-2 mt-4 hover:bg-orange-300">Order now (${{total}})</button>

@@ -1,1 +1,50 @@
-<p>register-form works!</p>
+<form class="w-full h-full flex flex-col justify-start items-center py-8 px-6 gap-4" [formGroup]="form">
+    <div class="flex flex-col justify-center items-center">
+        <img src="assets/img/chef.png" alt="" class="object-cover w-14">
+        <h3 class="text-2xl courgette text-emerald-400">Sign Up<span
+                class="text-5xl text-orange-400 babylonica">!</span></h3>
+    </div>
+    <!-- form -->
+    <div class="flex flex-col w-full">
+        <label for="name" class="text-xs text-orange-300 ml-4">First Name</label>
+        <input id="name" type="text" formControlName="name"
+            class="px-4 py-2 text-xs w-full rounded-full bg-zinc-100 placeholder-zinc-400 outline-none focus:ring-1 focus:ring-orange-400"
+            placeholder="first name">
+    </div>
+    <div class="flex flex-col w-full">
+        <label for="lastname" class="text-xs text-orange-300 ml-4">Last Name</label>
+        <input id="lastname" type="text" formControlName="lastname"
+            class="px-4 py-2 text-xs w-full rounded-full bg-zinc-100 placeholder-zinc-400 outline-none focus:ring-1 focus:ring-orange-400"
+            placeholder="last name">
+    </div>
+    <div class="flex flex-col w-full">
+        <label for="email" class="text-xs text-orange-300 ml-4">Email</label>
+        <input id="email" type="text" formControlName="email"
+            class="px-4 py-2 text-xs w-full rounded-full bg-zinc-100 placeholder-zinc-400 outline-none focus:ring-1 focus:ring-orange-400"
+            placeholder="email">
+    </div>
+    <div class="flex flex-col w-full">
+        <label for="password" class="text-xs text-orange-300 ml-4">Password</label>
+        <input id="password" type="password" formControlName="password"
+            class="px-4 py-2 text-xs w-full rounded-full bg-zinc-100 placeholder-zinc-400 outline-none focus:ring-1 focus:ring-orange-400"
+            placeholder="password">
+    </div>
+    <div class="flex flex-col w-full">
+        <label for="user" class="text-xs text-orange-300 ml-4">Repeat Password</label>
+        <input id="user" type="password" formControlName="repeatpassword"
+            class="px-4 py-2 text-xs w-full rounded-full bg-zinc-100 placeholder-zinc-400 outline-none focus:ring-1 focus:ring-orange-400"
+            placeholder="repeat password">
+    <p class="text-xs text-red-600 w-full" *ngIf="form.get('password')?.value != form.get('repeatpassword')?.value">the field password and repeat password must match</p>
+
+    </div>
+    <div class="w-full">
+        <button
+            class="px-8 py-1 bg-orange-400 rounded-full text-white text-xs ml-0 disabled:bg-orange-200 disabled:cursor-not-allowed hover:bg-orange-500"
+            (click)="submit()"
+            [disabled]="form.get('password')?.value != form.get('repeatpassword')?.value">Register</button>
+    </div>
+
+    <p class="w-full text-start text-xs text-zinc-700 mt-12 ">Already have an account? <span class="text-orange-400 cursor-pointer hover:text-orange-200"
+            (click)="emisor.emit('login')">Sign In</span></p>
+
+    </form>

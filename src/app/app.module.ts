@@ -9,12 +9,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AccesFormComponent } from './components/acces-form/acces-form.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
-import { LoginComponent } from './modal/login/login.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './pages/menu/menu.component';
 import { CardComponent } from './components/card/card.component';
 import { CardMyorderComponent } from './components/card-myorder/card-myorder.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
@@ -25,10 +25,10 @@ import { CardMyorderComponent } from './components/card-myorder/card-myorder.com
     FooterComponent,
     AccesFormComponent,
     RegisterFormComponent,
-    LoginComponent,
     MenuComponent,
     CardComponent,
-    CardMyorderComponent
+    CardMyorderComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
