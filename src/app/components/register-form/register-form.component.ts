@@ -9,6 +9,8 @@ import { ApiService } from 'src/app/service/api.service';
 })
 export class RegisterFormComponent {
 
+  loading: boolean = false;
+
   @Output() emisor = new EventEmitter<string>();
 
   form: FormGroup = new FormGroup({
@@ -19,24 +21,40 @@ export class RegisterFormComponent {
     repeatpassword: new FormControl(''),
   })
 
-  constructor(private api: ApiService){}
+  constructor(private api: ApiService) { }
 
-  submit(){
+  submit() {
+    this.loading = true;
     const formulario = {
-      form:{
+      form: {
         firstName: this.form.get('name')?.value,
         lastName: this.form.get('lastname')?.value,
         email: this.form.get('email')?.value,
         plainPassword: this.form.get('password')?.value
+      },
+      extra: {
+        isThirdPartyUser: false,
+        thirdPartyProvider: null,
       }
     }
-    this.api.register(formulario).subscribe(result=>{
+    this.api.register(formulario).subscribe(result => {
       console.log(result);
       this.emisor.emit('successfull submit register');
-    }, error=>{
+      this.loading = false;
+    }, error => {
       console.error(error);
       this.emisor.emit('error submit')
+      this.loading = false;
     })
+  }
+
+  validateEmail() {
+    return this.form.get('email')?.value.match(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i) != null;
+  }
+
+  disabled() {
+    return this.form.get('name')?.value == '' || this.form.get('lastname')?.value == '' || 
+    this.form.get('email')?.value == '' || this.form.get('passwword')?.value == '';
   }
 
 }

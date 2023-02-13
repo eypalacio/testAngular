@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SessionStorageService } from 'ngx-webstorage';
 import { ModalService } from 'src/app/modal/modal.service';
 
 @Component({
@@ -8,8 +9,12 @@ import { ModalService } from 'src/app/modal/modal.service';
 })
 export class NavbarComponent {
 
+  mostrar: boolean = false;
+  myorder: boolean = false;
+
   constructor(
-    private modalService: ModalService
+    private modalService: ModalService,
+    public sessionStorage: SessionStorageService,
   ) { }
 
   open() {

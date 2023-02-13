@@ -22,6 +22,7 @@
         <input id="email" type="text" formControlName="email"
             class="px-4 py-2 text-xs w-full rounded-full bg-zinc-100 placeholder-zinc-400 outline-none focus:ring-1 focus:ring-orange-400"
             placeholder="email">
+            <p class="text-red-600 w-full text-xs" *ngIf="!validateEmail() && form.get('email')?.value != ''">invalid email</p>
     </div>
     <div class="flex flex-col w-full">
         <label for="password" class="text-xs text-orange-300 ml-4">Password</label>
@@ -38,10 +39,10 @@
 
     </div>
     <div class="w-full">
-        <button
+        <button [ngClass]="{'animate-pulse': loading}" 
             class="px-8 py-1 bg-orange-400 rounded-full text-white text-xs ml-0 disabled:bg-orange-200 disabled:cursor-not-allowed hover:bg-orange-500"
             (click)="submit()"
-            [disabled]="form.get('password')?.value != form.get('repeatpassword')?.value">Register</button>
+            [disabled]="form.get('password')?.value != form.get('repeatpassword')?.value || disabled() || !validateEmail()">Register</button>
     </div>
 
     <p class="w-full text-start text-xs text-zinc-700 mt-12 ">Already have an account? <span class="text-orange-400 cursor-pointer hover:text-orange-200"

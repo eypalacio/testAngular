@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -36,6 +37,8 @@ import { ModalComponent } from './modal/modal.component';
     NgxWebstorageModule.forRoot(),
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserModule,
+    BrowserAnimationsModule,    
   ],
   providers: [],
   bootstrap: [AppComponent]
