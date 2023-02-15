@@ -1,7 +1,10 @@
 # Test
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
-styless: tailwind
+
+styles: tailwindcss version 3.2.6 (https://tailwindcss.com/)
+
+iconos: heroicons (https://heroicons.com/)
 
 ## Development server
 
